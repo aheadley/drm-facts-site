@@ -19,9 +19,10 @@ import os.path
 
 import staticjinja
 
-TEMPLATE_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    'templates')
+# TEMPLATE_DIR = os.path.join(
+#     os.path.dirname(os.path.abspath(__file__)),
+#     'templates')
+TEMPLATE_DIR = 'templates'
 OUTPUT_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     'output')
@@ -38,5 +39,5 @@ if __name__ == '__main__':
         help='Path to generated output', metavar='PATH',
         default=OUTPUT_DIR)
     opts, args = parser.parse_args()
-
+    print opts
     staticjinja.main(searchpath=opts.searchpath, outpath=opts.outpath)

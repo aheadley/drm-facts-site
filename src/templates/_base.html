@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+{% block head %}
+        <title>{% block head_title %}Index{% endblock %} - DRM Facts</title>
+    {% block head_style %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    {% endblock %}
+    {% block head_script %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+    {% endblock %}
+{% endblock %}
+    </head>
+    <body>
+{% block body %}
+        <!-- <div id="header" class="header"> -->
+    {% include 'snippets/_header.html' %}
+            <div id="content" class="container">
+    {% block body_content %}
+    {% endblock %}
+            </div>
+    {% include 'snippets/_footer.html' %}
+        <!-- </div> -->
+    {% block body_tracking %}
+        {% if google_tracking_code %}
+            {% include 'snippets/_google_analytics.html' %}
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+    </body>
+</html>
